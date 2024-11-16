@@ -1,0 +1,12 @@
+package com.micro.Service;
+
+import com.micro.Entity.Payment;
+import java.util.List;
+
+public interface PaymentService {
+    
+    List<Payment> getAllPayments();
+    Payment getPaymentByStuId(int studentId);
+	boolean authenticatePayment(String name, String password);
+    
+}

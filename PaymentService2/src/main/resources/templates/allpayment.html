@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Payments</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+    <h1>All Payments</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Payment ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Amount</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="payment : ${payments}">
+                <td th:text="${payment.payment_id}"></td>
+                <td th:text="${payment.name}"></td>
+                <td th:text="${payment.email}"></td>
+                <td th:text="${payment.amount}"></td>
+                <td>
+                    <a th:href="@{/getpayment/{payment_id}(payment_id=${payment.payment_id})}">View</a>
+                    <a th:href="@{/deletepayment/{payment_id}(payment_id=${payment.payment_id})}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <a th:href="@{/}">Back to Home</a>
+    </div>
+</body>
+</html>

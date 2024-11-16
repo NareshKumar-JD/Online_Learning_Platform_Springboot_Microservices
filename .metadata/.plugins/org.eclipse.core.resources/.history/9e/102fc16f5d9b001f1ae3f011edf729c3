@@ -1,0 +1,16 @@
+package com.micro.Feign;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.micro.DTO.UserDTO;
+
+
+@FeignClient(name = "UserRegister2")
+public interface UserClient {
+   // @GetMapping("/user/{name}")
+//	UserDTO getUserByName(@PathVariable("name") String name);
+	@GetMapping
+    UserDTO getUserByName( String name);
+}
+
